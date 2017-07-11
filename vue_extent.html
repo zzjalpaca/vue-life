@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue_life/../../js/vue.js"></script>
+</head>
+<body id="app1">
+    
+    <author></author>
+    <script>
+        var authorURL = Vue.extend({
+            template: '<p :href="authorURL">{{ authorName}}</p>',
+            data:function(){
+                return {
+                    authorName: "zijian",
+                    authorURL: "http://baidu.com"
+                }
+            }
+        })
+        new authorURL.$mount("author");
+
+        var app = new Vue({
+            el: "#app1",
+            data:function(){
+
+            }
+        })
+    
+    </script>
+</body>
+</html>
