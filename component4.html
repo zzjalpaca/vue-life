@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template外部声明</title>
+    <script src="../vue_life/../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <component v-bind:is="book"></component>
+        <button type="button" @click="changeComponent()">点击</button>
+    </div>
+
+
+
+</body>
+<script>
+    var book1 = {
+        template: `
+            <p>白夜行</p>
+        `
+    }
+    var book2 = {
+        template: `
+            <p>摆渡人</p>
+        `
+    }
+    var book3 = {
+        template: `
+            <p>我们仨</p>
+        `
+    }
+    var app = new Vue({
+        el: "#app",
+        data: {
+            book: 'book1'
+        },
+        components: {
+            "book1": book1,
+            "book2": book2,
+            "book3": book3,
+        },
+        methods: {
+            changeComponent: function () {
+                if (this.book == "book1") {
+                    this.book = 'book2';
+                } else if (this.book == "book2") {
+                    this.book = "book3"
+                } else {
+                    this.book = "book1"
+                }
+            }
+
+
+        }
+    })
+</script>
+
+</html>

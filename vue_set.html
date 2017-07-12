@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue_set</title>
+    <script src="../vue_life/../../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ count }}
+        <button type="button" onclick="add()">点击加1</button>
+        <ul>
+            <li v-for="city in cities">
+                {{ city }}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    function add(){
+        // app.count++;
+        // Vue.set(outData, 'count', 2);
+        // outData.count++;
+        // app.cities[1] = "广州";
+        Vue.set(app.cities, 1, "邯郸");
+        Vue.set(outData.cities, 2, "大连");
+    }
+    var outData = {
+        count: 1,
+        cities: ['北京', '上海', '杭州'],
+    }
+    var app = new Vue({
+        el:'#app',
+        data: outData,
+    })
+</script>
+</html>

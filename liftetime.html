@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>生命周期(钩子函数)</title>
+    <script src="../vue_life/../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            {{ count }}
+            <button type="button" onclick="add()">点击加1</button>
+        </div>
+        <button onclick="des()">销毁</button>
+
+    </div>
+</body>
+<script>
+    function add() {
+        app.count++;
+    }
+    function des(){
+        app.$destroy();
+    }
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            count: 1,
+        },
+        beforeCreate: function () {
+            console.log("1-beforeCreate 创建之前");
+        },
+        created: function () {
+            console.log("2-created 实例创建完成之后被调用,$el还不可见");
+        },
+        beforeMount: function () {
+            console.log("3-beforeMount 在挂载之前被调用");
+        },
+        mounted: function () {
+            console.log("4-mounted 在挂载之后被调用");
+        },
+        beforeUpdate: function () {
+            console.log("5-beforeUpdate 被更新前");
+        },
+        updated: function () {
+            console.log("6-updated 被更新之后");
+        },
+        activated: function () {
+            console.log("7-activated keep-alive 组件激活时调用");
+        },
+        deactivated: function () {
+            console.log("8-deactivated keep-alive 组件停用时调用。");
+        },
+        beforeDestroy: function () {
+            console.log("9-beforeDestroy 实例销毁之前调用。在这一步，实例仍然完全可用。");
+        },
+        destroyed: function () {
+            console.log("10-destroyed Vue 实例销毁后调用。");
+        },
+
+
+    })
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template外部声明</title>
+    <script src="../vue_life/../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <weather></weather>
+        
+    </div>
+
+
+
+</body>
+<script>
+    // 子组件要放在上边
+    var todayComponent = {
+        template: `<p>今天是7月12日</p>`
+    }
+    var weatherCompontent = {
+        template: `<div>
+            <p style="color:red;">今天是个好天气</p>
+            <today></today>
+        </div>`,
+        components: {
+            "today": todayComponent,
+        }
+    }
+    var app = new Vue({
+        el: "#app",
+        data: {
+            msg: "2017年7月12日"
+        },
+        components: {
+            "weather": weatherCompontent,
+        }
+    })
+</script>
+
+</html>

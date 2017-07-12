@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template模板</title>
+    <script src="../vue_life/../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        
+        <weather :today-one="msg"></weather>
+    </div>
+
+
+
+</body>
+<script>
+    
+    var app = new Vue({
+        el: "#app",
+        data: {
+            msg: "2017年7月12日"
+        },
+        components: {
+             "weather": {
+                 template: '<p style="color:red;">{{ todayOne }}是个好天气</p>',
+                 props: ['todayOne']
+                //  驼峰
+             }
+         }
+    })
+</script>
+
+</html>

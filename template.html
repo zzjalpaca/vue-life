@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template模板</title>
+    <script src="../vue_life/../../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <!-- <template id="best">
+        <h3>best wishes</h3>
+    </template> -->
+    <script id="ok" type="x-template">
+          <!-- 必须包含在一个标签内 -->
+        <div>
+            <h3>best wishes, good study</h3>
+            <button type="button">点击</button>
+        </div>
+    </script>
+
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+
+        },
+        // template: "#best",
+        // template: `
+        //     <h3>best wishes, 你好</h3>
+        // `
+        template: "#ok",
+    })
+</script>
+
+</html>
